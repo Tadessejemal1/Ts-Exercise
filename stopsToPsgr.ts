@@ -8,7 +8,6 @@ interface Stop {
   StopPsgrs: number;
   Bkgs: Booking[];
 }
-
 interface Booking {
   idBooking: number;
   PsgrName: string;
@@ -21,17 +20,14 @@ interface Booking {
   PsgrTelno: string;
   ParentInfo: Parent[];
 }
-
 interface Parent {
   ParentName: string;
   ParentTelno: string;
   ParentEmail: string;
 }
-
 interface Passengers {
   Passengers: Passenger[];
 }
-
 interface Passenger {
   idBooking: number;
   PsgrName: string;
@@ -51,8 +47,7 @@ interface Passenger {
 }
 
 function StopsToPsgrs(stops: Stop[]): Passengers {
-  const passengers: Passenger[] = [];
-
+  const passengers: Passenger[] = [];  
   stops.forEach(stop => {
     stop.Bkgs.forEach(booking => {
       const passengerIndex = passengers.findIndex(
@@ -92,8 +87,7 @@ function StopsToPsgrs(stops: Stop[]): Passengers {
   return { Passengers: passengers };
 }
 
-// Example usage
-var stopsJson = `{ [/* ...stops data.....*/] }`;
+const stopsJson = `{ [/* ...stops data.....*/] }`;
 
 const stopsData: { Stops: Stop[] } = JSON.parse(stopsJson);
 
